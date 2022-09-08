@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+\title{
+    \textbf{Capstone Proposal}
+}
+\author{Xiao Chen}
+
+\maketitle
+\newpage
+
+\section{Domain Background}
+Image classification problem is a classic machine learning problem. In this project, we will use Convolutional Neural Networks (CNN) model to classify different dog breeds and also make a web application user interface to allow user to provide an image of a dog in order to identify an estimate of the canine’s breed. If supplied an image of a human, the model will identify the resembling dog breed.
+
+
+\section{Problem Statement}
+Our goal of this project is to build a pipeline that can be used within a web or mobile app to process real-world, user-supplied images. We will explore using CNN model to make image classification process, and aim for fair test accuracy by performance metrics for classification problems.
+
+\section{Datasets and Inputs}
+The original datasets are all provided by Udacity which can be downloaded from amazon s3 buckets.
+The datasets contain 13233 total human images and 8351 total dog images.
+In the dog dataset, there are 133 total dog breed categories. It sorted to 6680 training dog images, 835 validation dog images, and 836 test dog images.
+
+\section{Solution Statement}
+Solution of this project is to design a CNN model to estimate the breed of the given dog image. Considering the dog dataset is not big enough, we will design one CNN model from scrash and then use transfer learning to load a pretrained model like VGG-16/ResNet-101 and only update the last fully connected layer with our limited dataset in order to improve performance in real world use case. We also need to make two different detector in order to differentiate human and dog images from user provided image.
+
+\section{Benchmark Model}
+The benchmark model for this project will be test accuracy around 10\% for CNN model which is built from scratch, and around 60\% for CNN model build from transfer learning.
+
+\section{Evaluation Metrics}
+For multiple class classification problem like this, we will use multi class log loss to evaluate the performance of the model.
+
+\section{Project Design}
+
+\subsection{Detect Humans}
+We will use Haar feature-based cascade classifiers from OpenCV to detect human faces in a sample image.
+\subsection{Detect Dogs}
+We will use pre-trained model VGG-16 to detect dogs in a sample image.
+
+\subsection{Write Algorithm}
+First we use make a CNN model from scratch to train, test and validate the model. Then we will do transfer learning with pre-trained CNN model like ResNet-101.
+We will write algorithm in the pipeline to detect if a sample image is human or dog image and go through correlated classification model.
+
+\subsection{Test Algorithm}
+Deploy our model with pipline and use web application to test the whole classification Solution.
+
+
+\end{document}
